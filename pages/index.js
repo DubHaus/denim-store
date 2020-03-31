@@ -1,3 +1,6 @@
-export default () => {
-  return <h1>Hello NextJs</h1>
-}
+import Layout from '../components/layout';
+
+export default () => (
+  <Layout>
+  </Layout>
+)
