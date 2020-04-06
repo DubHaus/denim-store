@@ -1,0 +1,26 @@
+@import './variables'
+
+.special-offer
+  margin: 130px 0
+  &__img
+    width: 105%
+
+  &__descr
+    display: flex
+    align-items: center
+    height: 100%
+    @include dashed_bg ()
+    &_wrap
+      display: flex
+      align-items: center
+      justify-content: center
+      height: 80%
+      width: 80%
+      background: $darkwhite
+      h4
+        color: $grey
+        margin-bottom: 15px
+        @include normal_18 ()
+      h2
+        margin-bottom: 40px
+        @include bold_32 ()

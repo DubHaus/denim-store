@@ -1,0 +1,72 @@
+@import './variables'
+
+=pseudo-drop-i ()
+  content: ''
+  display: block
+  width: 16px
+  height: 8px
+  background: url('/img/icons/drop-down.svg') no-repeat center center
+  background-size: contain
+  @include transition ()
+
+.product-list-filter
+  border: 2px solid $black
+  overflow: hidden
+
+  button
+    display: none
+    width: 100%
+    &.white_btn
+      @include white_btn () 
+
+  &__title
+    padding: 0px 18px
+    line-height: 50px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    border-bottom: solid $black
+    border-bottom-width: 0px
+    @include medium_18 ()
+    &::after
+      +pseudo-drop-i()
+  &__item
+    height: 0
+    overflow: hidden
+    @include transition ()
+    &_title
+      justify-content: space-between
+      display: flex
+      align-items: center
+      line-height: 50px
+      @include transition ()
+      @include medium_16 ()
+      &::after
+        +pseudo-drop-i()
+
+
+
+.product-list-filter > .drop-down.show
+  .product-list-filter
+    &__title
+      border-bottom-width: 2px
+      &::after
+        transform: rotate(180deg)
+
+    &__item
+      height: 50px
+      padding: 0 18px
+      &_title
+
+  button
+    display: block
+
+  .drop-down.show
+    .product-list-filter__item
+      height: auto
+      padding-bottom: 18px
+      &_title
+        margin-bottom: 10px
+        &::after
+          transform: rotate(180deg)
+

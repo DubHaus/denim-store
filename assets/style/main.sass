@@ -1,0 +1,60 @@
+@import './variables'
+
+%pseudo_dashed
+  content: ''
+  display: block
+  position: relative
+  width: 232px
+  height: 176px
+  z-index: 0
+  @include dashed_bg ()
+
+.main-first-screen
+  background: #F1F2F4
+  padding: 20px 0
+  &__down_btn
+    margin-bottom: 50px
+  &__title
+    color: $grey
+    margin-bottom: 30px
+    @include normal_18 ()
+    
+    
+  .big-title
+    font-family: 'Anton', sans-serif
+    display: block
+    color: $black
+    font-size: 128px
+
+  &__img
+    max-width: 430px
+    margin: 0 auto
+    &::before
+      margin-top: -130px
+      top: 130px
+      left: -50px
+      @extend %pseudo_dashed
+
+    &::after
+      margin-bottom: -130px
+      bottom: 130px
+      margin-left: auto
+      right: -50px
+      @extend %pseudo_dashed
+
+    img
+      position: relative
+      z-index: 1
+
+  &__social
+    margin-bottom: 50px
+    &_link
+      &:not(:last-child)
+        margin-bottom: 30px
+        display: block
+    @include medium_14 ()
+      
+       
+      
+      
+      

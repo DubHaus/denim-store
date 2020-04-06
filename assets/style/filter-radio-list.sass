@@ -1,0 +1,16 @@
+@import './variables'
+
+.filter-radio-list
+  label
+    display: block
+  &__item
+    display: block
+    padding: 0 18px
+    line-height: 40px
+    @include transition ()
+    @include medium_14 ()
+  input
+    display: none
+  input:checked + &__item
+    color: #fff
+    background: $black

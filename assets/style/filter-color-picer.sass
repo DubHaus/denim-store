@@ -1,0 +1,46 @@
+@import './variables'
+
+.filter-color-picer
+  display: flex
+  align-items: center
+  justify-content: space-between
+  input
+    display: none
+  &__item
+    width: 22px
+    height: 22px
+    border-radius: 50%
+    display: flex
+    align-items: center
+    justify-content: center
+    &::before
+      content: ''
+      width: 16px
+      height: 16px
+      border-radius: 50%
+    &.active
+      border: 2px solid
+    &.white
+      border-color: $green
+      &::before
+        background: $darkwhite
+    &.grey
+      border-color: $light-grey
+      &::before
+        background: $light-grey
+    &.blue
+      border-color: $blue
+      &::before
+        background: $blue
+    &.green
+      border-color: $green
+      &::before
+        background: $green
+    &.light-blue
+      border-color: $light-blue
+      &::before
+        background: $light-blue
+    &.black
+      border-color: $black
+      &::before
+        background: $black

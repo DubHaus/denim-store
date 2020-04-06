@@ -1,0 +1,39 @@
+@import './variables'
+
+body
+  font-family: Work Sans, sans-serif
+
+a 
+  text-decoration: none
+  color: inherit
+  &:hover
+    text-decoration: none
+    color: inherit
+
+button
+  border: none
+  padding: 0
+  outline: none !important
+
+h1,h2,h3,h4,h5,h6,p,label
+  margin: 0
+
+img
+  max-width: 100%
+
+
+.black_btn
+  @include black_btn ()
+
+@import './header'
+@import './main'
+@import './drop-list'
+@import './sale-list-item'
+@import './special-offer'
+@import './category-item'
+@import './breadcrumbs'
+@import './product-list-filter'
+@import './drop-down'
+@import './filter-radio-list'
+@import './filter-color-picer'
+@import './footer'

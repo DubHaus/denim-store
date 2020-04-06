@@ -1,0 +1,26 @@
+@import './variables'
+
+.footer
+  color: #FFF
+  background: $black
+  padding: 50px
+  &__logo
+    display: block
+    text-align: center
+    margin-bottom: 35px
+    @include extra_24 ()
+
+  &__menu
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-bottom: 35px
+    &_item
+      margin: 0 12.5px
+
+  &__socials
+    margin: 0 auto
+    width: 170px
+    display: flex
+    align-items: center
+    justify-content: space-between

@@ -1,13 +1,9 @@
 import Link from 'next/link';
 
-import styles from './footer.module.sass';
-
 const Footer = props => (
-  <footer className={`footer ${styles.footer}`}>
+  <footer className='footer'>
     <div className="container">
-      <div className="footer__logo">
-        <img />
-      </div>
+      <Link href='/'><a className='footer__logo'>Nîmes</a></Link>
       <div className="footer__menu">
         <Link href='/'><a className='footer__menu_item'>Shop</a></Link>
         <Link href='/delivery'><a className='footer__menu_item'>Delivery</a></Link>
@@ -16,18 +12,26 @@ const Footer = props => (
         <Link href='/contacts'><a className='footer__menu_item'>Contacts</a></Link>
       </div>
       <div className="footer__socials">
-        <a className='footer__soclials_item'>
-          <img />
-        </a>
-        <a className='footer__soclials_item'>
-          <img />
-        </a>
-        <a className='footer__soclials_item'>
-          <img />
-        </a>
-        <a className='footer__soclials_item'>
-          <img />
-        </a>
+        <Link href='/'>
+          <a className='footer__soclials_item'>
+            <img src='/img/icons/facebook.svg' />
+          </a>
+        </Link>
+        <Link href='/'>
+          <a className='footer__soclials_item'>
+            <img src='/img/icons/instagramm.svg' />
+          </a>
+        </Link>
+        <Link href='/'>
+          <a className='footer__soclials_item'>
+            <img src='/img/icons/pinterest.svg' />
+          </a>
+        </Link>
+        <Link href='/'>
+          <a className='footer__soclials_item'>
+            <img src='/img/icons/twitter.svg' />
+          </a>
+        </Link>
       </div>
     </div>
   </footer>

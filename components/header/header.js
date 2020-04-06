@@ -1,11 +1,9 @@
 import Link from 'next/link';
 
-import styles from './header.module.sass';
-
 const Header = props => (
-  <header className={`header ${styles.header}`}>
+  <header className='header'>
     <div className="container">
-      <div className="row">
+      <div className="row justify-content-between align-items-center">
         <div className="col">
           <nav className="header__menu">
             <Link href='/woman'><a className="header__menu_item">Woman</a></Link>
@@ -19,10 +17,10 @@ const Header = props => (
         <div className="col">
           <div className="header__buttons">
             <button className="header__buttons_item">
-              <img />
+              <img src='/img/icons/search.svg' />
             </button>
             <button className="header__buttons_item">
-              <img />
+              <img src='/img/icons/cart.svg' />
             </button>
           </div>
         </div>

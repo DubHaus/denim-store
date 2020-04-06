@@ -1,0 +1,11 @@
+@import './variables'
+
+.breadcrumbs
+  color: $grey
+  @include medium_18 ()
+  &__link
+    color: $grey
+    @include medium_18 ()
+    &:not(:first-of-type)
+      margin-left: 10px
+    
