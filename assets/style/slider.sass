@@ -1,0 +1,40 @@
+@import './variables'
+
+.slider
+  &__main_slide
+    position: relative
+    margin-bottom: 20px
+    &_item
+      display: flex
+      align-items: center
+      justify-content: center
+      margin: 0 auto
+      width: 75%
+      height: 520px 
+      & > *
+        height: 100%
+  &__btn
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    width: 20px
+    height: 30px
+    img
+      width: 100%
+    &.prev
+      left: 0
+      img
+        transform: rotate(90deg)
+    &.next
+      right: 0
+      img
+        transform: rotate(-90deg)
+  &__other_slides
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 75%
+    margin: 0 auto
+    &_item > *
+      width: 100%
+

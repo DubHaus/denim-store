@@ -1,16 +1,22 @@
 import { useState } from 'react';
 
-const FilterColorPicer = props => {
-  const [currentColor, setCurrentColor] = useState('white');
+const FilterColorPicer = ({ colors }) => {
+  const [currentColor, setCurrentColor] = useState(colors[0]);
+
+  const filterColorPicerStyle = {
+    width: `${colors.length * 34}px`
+  }
 
   return (
-    <div className="filter-color-picer">
-      <FilterColorPicerItem color={'white'} currentColor={currentColor} setCurrentColor={setCurrentColor} />
-      <FilterColorPicerItem color={'grey'} currentColor={currentColor} setCurrentColor={setCurrentColor} />
-      <FilterColorPicerItem color={'blue'} currentColor={currentColor} setCurrentColor={setCurrentColor} />
-      <FilterColorPicerItem color={'green'} currentColor={currentColor} setCurrentColor={setCurrentColor} />
-      <FilterColorPicerItem color={'light-blue'} currentColor={currentColor} setCurrentColor={setCurrentColor} />
-      <FilterColorPicerItem color={'black'} currentColor={currentColor} setCurrentColor={setCurrentColor} />
+    <div
+      style={filterColorPicerStyle}
+      className="filter-color-picer">
+      {colors.map(color => (
+        <FilterColorPicerItem
+          color={color}
+          currentColor={currentColor}
+          setCurrentColor={setCurrentColor} />
+      ))}
     </div>
   )
 }

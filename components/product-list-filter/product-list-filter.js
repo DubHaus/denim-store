@@ -1,8 +1,9 @@
-import FilterSortPrice from '../filter-radio-list';
+import FilterRadioList from '../filter-radio-list';
 import FilterColorPicer from '../filter-color-picer';
 import DropDown from '../drop-down';
+import ProductListFilterItem from '../product-list-filter-item';
 
-const ProductListFitler = (props) => {
+const ProductListFitler = ({ show, setShow }) => {
   const sortPriceList = [
     {
       value: 'recommendation',
@@ -37,36 +38,36 @@ const ProductListFitler = (props) => {
     },
   ]
 
+
+  const content = show ?
+    <div className='product-list-filter__content'>
+      <ProductListFilterItem title='Price'>
+        <FilterRadioList list={sortPriceList} />
+      </ProductListFilterItem>
+      <ProductListFilterItem title='Color'>
+        <FilterColorPicer colors={[
+          'white',
+          'grey',
+          'blue',
+          'green',
+          'light-blue',
+          'black',
+        ]} />
+      </ProductListFilterItem>
+      <ProductListFilterItem title='Collection'>
+        <FilterRadioList list={collectionList} />
+      </ProductListFilterItem>
+      <button className="black_btn">Apply (9 products)</button>
+      <button className="white_btn">Clear all</button>
+    </div>
+    : null;
+
   return (
-    <form className="product-list-filter">
-      <DropDown>
-        <div className="product-list-filter__title">Filter by</div>
-        <div className='product-list-filter__content'>
-          <ProductListFilterItem title='Price'>
-            <FilterSortPrice list={sortPriceList} />
-          </ProductListFilterItem>
-          <ProductListFilterItem title='Color'>
-            <FilterColorPicer />
-          </ProductListFilterItem>
-          <ProductListFilterItem title='Collection'>
-            <FilterSortPrice list={collectionList} />
-          </ProductListFilterItem>
-          <button className="black_btn">Apply (9 products)</button>
-          <button className="white_btn">Clear all</button>
-        </div>
-      </DropDown>
+    <form className={`product-list-filter ${show && 'show'}`}>
+      <div onClick={setShow} className="product-list-filter__title">Filter by</div>
+      {content}
     </form>
   )
 }
 
-const ProductListFilterItem = ({ title, children }) => (
-  <DropDown>
-    <div className="product-list-filter__item">
-      <div className="product-list-filter__item_title">{title}</div>
-      {children}
-    </div>
-  </DropDown>
-)
-
-
-export default ProductListFitler;
+export default DropDown(ProductListFitler)();

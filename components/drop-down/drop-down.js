@@ -1,19 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-const DropDown = ({ children }) => {
-  const [show, setShow] = useState(false);
+const DropDown = Wrapped => {
+  return () => {
+    return ({ ...props }) => {
+      const [show, setShow] = useState(false);
 
-  const onShow = e => {
-    e.stopPropagation();
-    setShow(!show);
+      const onSetShow = e => {
+        e.stopPropagation();
+        setShow(!show);
+      }
+
+      return <Wrapped {...props} show={show} setShow={onSetShow} />
+    }
   }
-
-
-  return (
-    <div className={`drop-down ${show && 'show'}`} onClick={onShow}>
-      {children}
-    </div>
-  )
 }
 
 export default DropDown;

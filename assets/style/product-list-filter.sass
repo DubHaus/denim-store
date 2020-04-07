@@ -1,5 +1,18 @@
 @import './variables'
 
+@keyframes heightAnimation
+  0%
+    margin: -50px
+    opacity: 0
+  100%
+    margin: 0px
+    opacity: 1
+
+
+=height-animation ()
+  animation: heightAnimation 0.5s ease forwards
+
+
 =pseudo-drop-i ()
   content: ''
   display: block
@@ -10,63 +23,67 @@
   @include transition ()
 
 .product-list-filter
-  border: 2px solid $black
-  overflow: hidden
+  height: 54px
+  position: relative
+  z-index: 1
 
-  button
-    display: none
+  .white_btn, .black_btn
     width: 100%
-    &.white_btn
-      @include white_btn () 
+  .white_btn
+    @include white_btn ()
 
   &__title
+    cursor: pointer
     padding: 0px 18px
     line-height: 50px
     display: flex
     align-items: center
     justify-content: space-between
-    border-bottom: solid $black
-    border-bottom-width: 0px
+    border: 2px solid $black
     @include medium_18 ()
     &::after
       +pseudo-drop-i()
+  &__content
+    border: 2px solid $black
+    border-top: 0px
+    background: #fff
   &__item
-    height: 0
-    overflow: hidden
-    @include transition ()
     &_title
+      padding: 0 18px
+      cursor: pointer
       justify-content: space-between
       display: flex
       align-items: center
       line-height: 50px
-      @include transition ()
       @include medium_16 ()
       &::after
         +pseudo-drop-i()
+    &_content
+      padding: 0 18px
+      text-align: center
 
 
 
-.product-list-filter > .drop-down.show
+.product-list-filter.show
   .product-list-filter
     &__title
-      border-bottom-width: 2px
       &::after
         transform: rotate(180deg)
 
+    &__content > *
+      @include height-animation ()
     &__item
-      height: 50px
-      padding: 0 18px
       &_title
+        
 
-  button
-    display: block
-
-  .drop-down.show
+  .product-list-filter__item.show
     .product-list-filter__item
-      height: auto
       padding-bottom: 18px
       &_title
         margin-bottom: 10px
         &::after
           transform: rotate(180deg)
+
+      &_content > *
+        @include height-animation ()
 
