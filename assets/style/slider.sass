@@ -10,7 +10,7 @@
       justify-content: center
       margin: 0 auto
       width: 75%
-      height: 520px 
+      height: 585px
       & > *
         height: 100%
   &__btn
@@ -38,3 +38,17 @@
     &_item > *
       width: 100%
 
+@media screen and (max-width: 1199px)
+  .slider__main_slide_item
+    height: 487px
+
+@media screen and (max-width: 991px)
+  .slider__main_slide_item
+    height: 357px
+
+@media screen and (max-width: 767px)
+  .slider
+    &__other_slides
+      display: none
+    &__main_slide_item
+      height: auto

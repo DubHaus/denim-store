@@ -1,3 +1,3 @@
-import FilterColorPicer from './filter-color-picer';
+import ColorPicer from './filter-color-picer';
 
-export default FilterColorPicer;
+export default ColorPicer;

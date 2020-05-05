@@ -1,0 +1,23 @@
+@import "variables"
+
+.product-list
+  margin: 40px 0 70px
+  &__items
+    margin-top: 40px
+  &__btn_load
+    display: block
+    margin: 0 auto
+  &__load-more-count
+    position: relative
+    width: 200px
+    margin: 0 auto 40px
+    @include normal_18
+
+    &::after
+      content: ''
+      display: block
+      margin-top: 10px
+      width: 40px
+      height: 2px
+      background: $black
+      

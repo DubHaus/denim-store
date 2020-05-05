@@ -4,17 +4,33 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "nodemon ./server/index.js",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "next": "^9.3.3",
+    "next-redux-wrapper": "^5.0.0",
+    "node-fetch": "^2.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router": "^5.1.2",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "sass": "^1.26.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "jest": "^25.3.0",
+    "nodemon": "^2.0.3",
+    "redux-devtools-extension": "^2.13.8",
+    "uuid": "^7.0.3"
   }
 }

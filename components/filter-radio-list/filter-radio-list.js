@@ -1,11 +1,7 @@
-import { useState } from 'react';
-
-const FilterRadioList = ({ list }) => {
-  const [active, setActive] = useState(list[0].value);
-
+const FilterRadioList = ({ list, changeActive, active }) => {
   return (
     <div className="filter-radio-list">
-      {list.map((props) => <FilterSortPriceItem {...props} active={active} setActive={setActive} />)}
+      {list.map((props, idx) => <FilterSortPriceItem key={idx} {...props} active={active} setActive={changeActive} />)}
     </div>
   )
 }

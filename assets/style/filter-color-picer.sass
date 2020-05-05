@@ -1,9 +1,18 @@
 @import './variables'
 
 .filter-color-picer
-  display: inline-flex
-  align-items: center
-  justify-content: space-between
+  .item-picer
+    display: inline-flex
+    align-items: center
+    justify-content: space-between
+    &__item
+      &:not(:first-child)
+        margin-left: 15px
+      &.active
+        .filter-color-picer__item
+          border-width: 2px
+          border-style: solid
+
   input
     display: none
   &__item
@@ -13,13 +22,14 @@
     display: flex
     align-items: center
     justify-content: center
+
     &::before
       content: ''
       width: 16px
       height: 16px
       border-radius: 50%
-    &.active
-      border: 2px solid
+  
+  &__item
     &.white
       border-color: $green
       &::before

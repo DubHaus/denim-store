@@ -48,11 +48,35 @@
 
   &__social
     margin-bottom: 50px
+    text-align: right
     &_link
       &:not(:last-child)
         margin-bottom: 30px
         display: block
     @include medium_14 ()
+
+
+@media screen and (max-width: 1200px)
+  .main-first-screen
+    .big-title
+      font-size: 98px
+
+@media screen and (max-width: 768px)
+  .main-first-screen
+    &__down_btn
+      display: none
+    &__social
+      display: none
+    &__descr
+      text-align: center
+
+@media screen and (max-width: 576px)
+  .main-first-screen__img
+    margin-bottom: 20px
+    &::after,
+    &::before
+      display: none
+
       
        
       

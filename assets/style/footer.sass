@@ -16,6 +16,7 @@
     justify-content: center
     margin-bottom: 35px
     &_item
+      @include medium_18
       margin: 0 12.5px
 
   &__socials
@@ -24,3 +25,13 @@
     display: flex
     align-items: center
     justify-content: space-between
+
+
+@media screen and (max-width: 576px)
+  .footer
+    padding: 15px
+    &__menu
+      flex-wrap: wrap
+      justify-content: flex-start
+      &_item
+        margin: 12.5px

@@ -1,4 +1,4 @@
-import DropDown from '../drop-down';
+import { WithDropDown } from '../hos-helpers';
 
 const ProductListFilterItem = ({ title, children, show, setShow }) => {
   return (
@@ -11,4 +11,4 @@ const ProductListFilterItem = ({ title, children, show, setShow }) => {
   )
 }
 
-export default DropDown(ProductListFilterItem)();
+export default WithDropDown(ProductListFilterItem)();

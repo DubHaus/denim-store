@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const DropDown = Wrapped => {
+const WithDropDown = Wrapped => {
   return () => {
     return ({ ...props }) => {
       const [show, setShow] = useState(false);
@@ -15,4 +15,4 @@ const DropDown = Wrapped => {
   }
 }
 
-export default DropDown;
+export default WithDropDown;

@@ -1,65 +1,93 @@
-$black :#151C22
-$grey : #727A82
-$darkwhite : #F1F2F4
-$light-grey : #BFC3C8
+$black: #151C22
+$grey: #727A82
+$darkwhite: #F1F2F4
+$light-grey: #BFC3C8
 $blue: #3B6392
 $light-blue: #4193DA
 $green: #B0C3C7
 
-=medium_14 ()
+=bold_14()
+  font-size: 14px
+  font-weight: bold
+  @media screen and (max-width: 576px)
+    font-size: 10px
+
+=medium_14()
   font-size: 14px
   font-weight: 500
 
-=normal_16 ()
+=normal_16()
   font-size: 16px
   font-weight: normal
+  @media screen and (max-width: 576px)
+    font-size: 14px
 
-=medium_16 ()
+=medium_16()
   font-size: 16px
   font-weight: 500
+  @media screen and (max-width: 576px)
+    font-size: 14px
 
-=bold_16 ()
+=bold_16()
   font-size: 16px
   font-weight: 600
+  @media screen and (max-width: 576px)
+    font-size: 14px
 
-=normal_18 ()
+=normal_18()
   font-size: 18px
   font-weight: normal
+  @media screen and (max-width: 576px)
+    font-size: 16px
 
-=medium_18 ()
+=medium_18()
   font-size: 18px
   font-weight: 500
+  @media screen and (max-width: 576px)
+    font-size: 16px
 
-=extra_24 ()
+=bold_18()
+  font-size: 18px
+  font-weight: 600
+  @media screen and (max-width: 576px)
+    font-size: 16px
+
+=extra_24()
   font-weight: 800
   font-size: 24px
 
-=bold_32 ()
+=bold_32()
   font-size: 32px
   font-weight: 600
+  @media screen and (max-width: 768px)
+    font-size: 28px
+  @media screen and (max-width: 576px)
+    font-size: 26px
 
 
-=black_btn ()
+=black_btn()
   background: $black
   min-width: 200px
   color: #fff
   line-height: 64px
   padding: 0 24px
-  @include medium_16 ()
+  white-space: nowrap
+  @include medium_16()
 
-=white_btn ()
+=white_btn()
   background: #fff
   min-width: 200px
   color: $black
   line-height: 64px
   padding: 0 24px
-  @include medium_14 ()
+  white-space: nowrap
+  @include medium_14()
 
-=dashed_bg ()
+=dashed_bg()
   background: url('/img/dashed_bg.svg') no-repeat center center
   background-size: cover
 
-=transition () 
+=transition()
   transition: all 0.3s ease
 
 

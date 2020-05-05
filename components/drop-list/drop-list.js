@@ -1,9 +1,17 @@
+import { useState } from 'react';
+
 const DropList = ({ title, children }) => {
-  const showBtn = children && children.length > 4
-    ? <button className="drop-list__show-all">View all</button>
+  const [show, setShow] = useState(false);
+
+  const onChangeShow = () => setShow(!show)
+
+  const showBtnText = show ? 'Hide' : 'View all';
+
+  const showBtn = children.length > 4
+    ? <button onClick={onChangeShow} className="drop-list__show-all">{showBtnText}</button>
     : null;
 
-  const showItems = children && children.length > 4
+  const showItems = children.length > 4 && !show
     ? children.slice(0, 4)
     : children;
 
@@ -18,7 +26,7 @@ const DropList = ({ title, children }) => {
         </div>
         <div className="row">
           {
-            showItems
+            showItems.map((item, idx) => <div key={idx} className='col-6 col-sm-4 col-md-3'>{item}</div>)
           }
         </div>
       </div>

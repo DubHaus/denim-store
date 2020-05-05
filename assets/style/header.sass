@@ -1,61 +1,94 @@
 @import '../../assets/style/variables'
 
-=img-pseudo ()
+=img-pseudo()
   content: ''
   z-index: 0
   display: block
   position: absolute
-  @include dashed_bg ()
+  @include dashed_bg()
 
 .header
   color: $black
   display: flex
   align-items: center
   height: 67px
+
   &__menu
     max-width: 200px
+
     &_item
       color: $black
-      @include medium_16 ()
+      @include medium_16()
+
       &:not(:first-child)
         margin-left: 35px
-  
+
   &__logo
     display: block
     text-align: center
-    @include extra_24 ()
+    @include extra_24()
 
   &__buttons
     display: flex
     align-items: center
-    justify-content: space-between
-    margin-left: auto
-    max-width: 80px
-    
+    justify-content: flex-end
+
+    &_item
+      padding: 0 10px
+
+    .cart-btn
+      margin-top: -10px
+      .cart-count
+        display: block
+        position: relative
+        bottom: -6px
+        right: -10px
+        background: $black
+        color: #fff
+        width: 18px
+        height: 18px
+        line-height: 18px
+        border-radius: 50%
+        font-size: 12px
+        font-weight: 500
+
 .header-sale-section
   background: $darkwhite
+
   &__title
     width: 90%
     margin-top: 30px
-    @include bold_32 ()
+    @include bold_32()
 
   &__img
     position: relative
     display: inline-block
+
     img
       position: relative
       z-index: 1
+
     &::before
       width: 178px
       height: 135px
       bottom: 0
       left: -30px
-      +img-pseudo ()
+      +img-pseudo()
+
     &::after
       width: 232px
       height: 176px
       top: 0
       right: -30px
-      +img-pseudo ()
+      +img-pseudo()
       
+@media screen and (max-width: 576px)
+  .header
+    height: auto
+    margin-bottom: 20px
+    &__logo,
+    &__buttons
+      margin-bottom: 10px
+    &-sale-section__img
+      display: none
 

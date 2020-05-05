@@ -5,12 +5,12 @@ const SpecialOffer = props => {
     <div className="special-offer">
       <div className="container">
         <div className="row">
-          <div className="col-7">
+          <div className="col-12 order-2 order-md-0 col-md-6 col-lg-7">
             <div className="special-offer__img">
               <img src='/img/spring_img.png' />
             </div>
           </div>
-          <div className="col-5">
+          <div className="col-12 order-1 order-md-0 col-md-6 col-lg-5">
             <div className="special-offer__descr">
               <div className="special-offer__descr_wrap">
                 <div className="special-offer__descr_wrap_block">

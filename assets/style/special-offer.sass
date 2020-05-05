@@ -2,6 +2,8 @@
 
 .special-offer
   margin: 130px 0
+  .container
+    overflow: hidden
   &__img
     width: 105%
 
@@ -10,6 +12,7 @@
     align-items: center
     height: 100%
     @include dashed_bg ()
+    background-color: #fff
     &_wrap
       display: flex
       align-items: center
@@ -24,3 +27,24 @@
       h2
         margin-bottom: 40px
         @include bold_32 ()
+
+
+@media screen and (max-width: 992px)
+  .special-offer__img
+    width: 140%
+    margin-left: -15%
+
+@media screen and (max-width: 768px)
+  .special-offer
+    &__img
+      width: 100%
+      margin: 0
+    &__descr
+      justify-content: center
+      padding: 15px
+      &_wrap
+        width: 100%
+        height: auto
+        padding: 40px
+        &_block
+          text-align: center

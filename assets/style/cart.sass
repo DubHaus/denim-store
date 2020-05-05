@@ -1,0 +1,68 @@
+@import './variables'
+
+.cart
+  position: relative
+  &__wrap
+    position: absolute
+    padding: 35px 19px
+    background: #fff
+    z-index: 10
+    width: 100%
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.25)
+
+  &__item
+    background: #DBDBDB
+    padding: 10px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    &:not(:last-child)
+      margin-bottom: 22px
+    &_color
+      width: 16px
+      height: 16px
+      border-radius: 50%
+    &_img
+      width: 45px
+    &_title
+      text-overflow: ellipsis
+      white-space: nowrap
+      overflow: hidden
+      @include medium_14
+      width: 200px
+    &_size, &_count
+      @include medium_14
+    &_price
+      @include bold_14
+
+    .green
+      background: $green
+    .black
+      background: $black
+    .grey
+      background: $grey
+    .blue
+      background: $blue
+    .light-blue
+      background: $light-blue
+    .white
+      background: $darkwhite
+
+  .black_btn
+    display: block
+    margin: 0 auto
+
+@media screen and (max-width: 1200px)
+  .cart
+    &__item_title
+      width: 150px
+
+@media screen and (max-width: 576px)
+  .cart
+    &__item
+      &_title
+        width: 100px
+      &_color,
+      &_size,
+      &_img
+        display: none

@@ -1,0 +1,31 @@
+@import './variables'
+
+.search-form
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+  &__input
+    width: 0
+    border: none
+    border-bottom: 1.5px solid transparent
+    @include transition
+
+  button
+    width: 24px
+    img
+      @include transition
+
+  &.open
+    .search-form__input
+      width: 150px
+      border-color: $black
+    button
+      img
+        transform: rotate(90deg)
+
+
+@media screen and (max-width: 992px)
+  .search-form__input
+    width: 150px
+    border-color: $black

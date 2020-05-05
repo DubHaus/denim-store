@@ -1,21 +1,30 @@
 import FilterRadioList from '../filter-radio-list';
-import FilterColorPicer from '../filter-color-picer';
-import DropDown from '../drop-down';
+import ColorPicer from '../filter-color-picer';
+import {WithDropDown} from '../hos-helpers';
 import ProductListFilterItem from '../product-list-filter-item';
+import {connect} from "react-redux";
+import {setFilterCollection, setFilterColor, setFilterSortPrice} from "../../store/actions";
+import {cleanFilter, setFilterIsActive} from "../../store/actions/filter";
 
-const ProductListFitler = ({ show, setShow }) => {
+const ProductListFilter = ({
+                             show, setShow,
+                             filter, setFilterSortPrice,
+                             setFilterColor,
+                             setFilterCollection, cleanFilter,
+                             setFilterIsActive
+                           }) => {
   const sortPriceList = [
     {
       value: 'recommendation',
       title: 'Recommendation'
     },
     {
-      value: 'low_to_hight',
-      title: 'Price : Low to hight'
+      value: 'low-to-high',
+      title: 'Price : Low to high'
     },
     {
-      value: 'hight_to_low',
-      title: 'Price : Hight to low'
+      value: 'high-to-low',
+      title: 'Price : High to low'
     }
   ]
 
@@ -38,36 +47,57 @@ const ProductListFitler = ({ show, setShow }) => {
     },
   ]
 
+  const cleanHandler = e => {
+    e.preventDefault();
+    cleanFilter();
+  }
+
+  const submitHandler =  e => {
+    e.preventDefault();
+    setFilterIsActive(true);
+  }
 
   const content = show ?
     <div className='product-list-filter__content'>
       <ProductListFilterItem title='Price'>
-        <FilterRadioList list={sortPriceList} />
+        <FilterRadioList list={sortPriceList} changeActive={setFilterSortPrice} active={filter.sortPrice}/>
       </ProductListFilterItem>
       <ProductListFilterItem title='Color'>
-        <FilterColorPicer colors={[
+        <ColorPicer colors={[
           'white',
           'grey',
           'blue',
           'green',
           'light-blue',
           'black',
-        ]} />
+        ]} changeColor={setFilterColor} color={filter.color}/>
       </ProductListFilterItem>
       <ProductListFilterItem title='Collection'>
-        <FilterRadioList list={collectionList} />
+        <FilterRadioList list={collectionList} changeActive={setFilterCollection} active={filter.collection}/>
       </ProductListFilterItem>
-      <button className="black_btn">Apply (9 products)</button>
-      <button className="white_btn">Clear all</button>
+      <button className="black_btn">Apply</button>
+      <button onClick={cleanHandler} className="white_btn">Clear all</button>
     </div>
     : null;
 
   return (
-    <form className={`product-list-filter ${show && 'show'}`}>
+    <form onSubmit={submitHandler} className={`product-list-filter ${show && 'show'}`}>
       <div onClick={setShow} className="product-list-filter__title">Filter by</div>
       {content}
     </form>
   )
 }
 
-export default DropDown(ProductListFitler)();
+const mapStateToProps = state => ({
+  filter: state.filter
+})
+
+const mapDispatchToProps = {
+  setFilterSortPrice,
+  setFilterColor,
+  setFilterCollection,
+  cleanFilter,
+  setFilterIsActive
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WithDropDown(ProductListFilter)());

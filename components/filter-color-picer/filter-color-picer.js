@@ -1,43 +1,27 @@
-import { useState } from 'react';
+import ItemPicer from '../item-picer';
 
-const FilterColorPicer = ({ colors }) => {
-  const [currentColor, setCurrentColor] = useState(colors[0]);
-
-  const filterColorPicerStyle = {
-    width: `${colors.length * 34}px`
-  }
+const ColorPicer = ({colors, color, changeColor}) => {
 
   return (
-    <div
-      style={filterColorPicerStyle}
-      className="filter-color-picer">
-      {colors.map(color => (
-        <FilterColorPicerItem
-          color={color}
-          currentColor={currentColor}
-          setCurrentColor={setCurrentColor} />
-      ))}
+    <div className="filter-color-picer">
+      <ItemPicer
+        items={colors}
+        currentElement={color}
+        setCurrentElement={changeColor}
+        Component={ColorPicerItem}/>
     </div>
   )
 }
 
-const FilterColorPicerItem = ({ color, currentColor, setCurrentColor }) => {
-  const onChangeColor = e => {
-    e.stopPropagation();
-    setCurrentColor(color);
-  }
-  return (
-    <label className={`filter-color-picer__item ${color} ${color === currentColor && 'active'}`}
-      for={color}>
-      <input
-        id={color}
-        type='radio'
-        checked={currentColor === color}
-        value={color}
-        onChange={onChangeColor}
-      />
-    </label>
-  )
-}
+const ColorPicerItem = ({ prop }) => (
+  <label className={`filter-color-picer__item ${prop}`}
+    htmlFor={prop}>
+    <input
+      id={prop}
+      type='radio'
+      value={prop}
+    />
+  </label>
+)
 
-export default FilterColorPicer;
+export default ColorPicer;

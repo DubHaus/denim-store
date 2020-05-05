@@ -7,13 +7,13 @@ const LayoutWithBreadCrumbs = ({children}) => {
       <div className="header-sale-section">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-4 offset-2">
+            <div className="col-12 col-sm-6 col-lg-4 offset-lg-2">
               <div className="header-sale-section__descr">
                 <BreadCrumbs />
                 <h2 className='header-sale-section__title'>Denim Collection Fall 2019</h2>
               </div>
             </div>
-            <div className="col-4">
+            <div className="col-sm-6 col-lg-4">
               <div className="header-sale-section__img">
                 <img src='/img/sale_1.png' />
               </div>
