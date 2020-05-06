@@ -1,14 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 
-const dataFile = fs.readFileSync(path.join(__dirname, '../database.json'));
+const dataFile = fs.readFileSync('server/database.json');
 const dataBase = JSON.parse(dataFile);
 
 const refreshDataBase = (...items) => {
   const data = items.reduce((acc, el) => ({ ...acc, ...el }));
 
-  fs.writeFileSync(
-    path.join(__dirname, '../database.json'),
+  fs.writeFileSync('server/database.json',
     JSON.stringify({ ...dataBase, ...data })
   );
 }
