@@ -1,17 +1,15 @@
 import FilterRadioList from '../filter-radio-list';
 import ColorPicer from '../filter-color-picer';
-import {WithDropDown} from '../hos-helpers';
 import ProductListFilterItem from '../product-list-filter-item';
 import {connect} from "react-redux";
 import {setFilterCollection, setFilterColor, setFilterSortPrice} from "../../store/actions";
-import {cleanFilter, setFilterIsActive} from "../../store/actions/filter";
+import {cleanFilter, setFilterIsActive, setFilterIsOpen} from "../../store/actions/filter";
 
 const ProductListFilter = ({
-                             show, setShow,
                              filter, setFilterSortPrice,
                              setFilterColor,
                              setFilterCollection, cleanFilter,
-                             setFilterIsActive
+                             setFilterIsActive, setFilterIsOpen
                            }) => {
   const sortPriceList = [
     {
@@ -49,15 +47,17 @@ const ProductListFilter = ({
 
   const cleanHandler = e => {
     e.preventDefault();
+    setFilterIsOpen(false)
     cleanFilter();
   }
 
   const submitHandler =  e => {
     e.preventDefault();
     setFilterIsActive(true);
+    setFilterIsOpen(false)
   }
 
-  const content = show ?
+  const content = filter.isOpen ?
     <div className='product-list-filter__content'>
       <ProductListFilterItem title='Price'>
         <FilterRadioList list={sortPriceList} changeActive={setFilterSortPrice} active={filter.sortPrice}/>
@@ -81,8 +81,8 @@ const ProductListFilter = ({
     : null;
 
   return (
-    <form onSubmit={submitHandler} className={`product-list-filter ${show && 'show'}`}>
-      <div onClick={setShow} className="product-list-filter__title">Filter by</div>
+    <form onSubmit={submitHandler} className={`product-list-filter ${filter.isOpen && 'show'}`}>
+      <div onClick={() => setFilterIsOpen(!filter.isOpen)} className="product-list-filter__title">Filter by</div>
       {content}
     </form>
   )
@@ -97,7 +97,8 @@ const mapDispatchToProps = {
   setFilterColor,
   setFilterCollection,
   cleanFilter,
-  setFilterIsActive
+  setFilterIsActive,
+  setFilterIsOpen
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(WithDropDown(ProductListFilter)());
+export default connect(mapStateToProps, mapDispatchToProps)(ProductListFilter);

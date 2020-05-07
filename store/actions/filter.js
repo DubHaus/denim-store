@@ -4,7 +4,7 @@ import {
   SET_FILTER_COLOR,
   SET_FILTER_IS_ACTIVE,
   SET_FILTER_SORT_PRICE,
-  SET_PRODUCT_LIST
+  SET_FILTER_IS_OPEN
 } from "./types";
 
 export const setFilterColor = color => {
@@ -38,5 +38,12 @@ export const setFilterIsActive = isActive => {
 export const cleanFilter = () => {
   return {
     type: CLEAN_FILTER
+  }
+}
+
+export const setFilterIsOpen = isOpen => {
+  return {
+    type: SET_FILTER_IS_OPEN,
+    payload: isOpen
   }
 }

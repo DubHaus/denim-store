@@ -3,18 +3,20 @@ import {
   SET_FILTER_COLOR,
   SET_FILTER_SORT_PRICE,
   CLEAN_FILTER,
-  SET_FILTER_IS_ACTIVE
+  SET_FILTER_IS_ACTIVE,
+  SET_FILTER_IS_OPEN
 } from "../actions/types";
 
 const reducer = (state, action) => {
-  const initState =  {
+  const initState = {
     sortPrice: 'recommendation',
     color: '',
     collection: '',
-    isActive: false
+    isActive: false,
+    isOpen: false
   }
-  if(state === undefined) {
-    return {... initState}
+  if (state === undefined) {
+    return { ...initState }
   }
 
   switch (action.type) {
@@ -38,12 +40,18 @@ const reducer = (state, action) => {
       }
 
     case CLEAN_FILTER:
-      return {...initState}
+      return { ...initState }
 
     case SET_FILTER_IS_ACTIVE:
       return {
         ...state,
         isActive: action.payload
+      }
+
+    case SET_FILTER_IS_OPEN:
+      return {
+        ...state,
+        isOpen: action.payload
       }
 
     default:
