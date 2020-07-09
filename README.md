@@ -1,10 +1,17 @@
 # Denim store
 
-Basic online store
+Basic front end of online store
 
-Used technologies:
+Link https://denim-store.herokuapp.com/
+
+## Used technologies:
 * React
 * NextJs
 * Redux
 
-Link https://denim-store.herokuapp.com/
+## How to use
+1. Copy repo
+2. npm run dev
+Enjoy!
+
+
